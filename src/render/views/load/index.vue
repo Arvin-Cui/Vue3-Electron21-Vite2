@@ -1,21 +1,26 @@
 <template>
-  <div class="app-loading ">
-    <div class="app-loading-wrap">
-      <div class="app-loading-title">
-<!--        <img src="/logo.png" class="app-loading-logo" alt="Logo" />-->
-        <div class="app-loading-title">加载页面</div>
-      </div>
-      <div class="app-loading-item">
-        <div class="app-loading-outter"></div>
-        <div class="app-loading-inner"></div>
-      </div>
-    </div>
-  </div>
+   <div class="load-container">
+     <img :src="close" class="close-btn"/>
+     <div class="load-main">
+       <img :src="logo" class="logo-img"/>
+       <div class="title">
+         <p>新闻信息终端</p>
+         <p>丰富 · 实时 · 高效 · 智能</p>
+       </div>
+     </div>
+     <div class="load-process-box">
+       <span>开始启动...</span>
+       <span>29%</span>
+     </div>
+   </div>
 </template>
 
 <script setup lang="ts">
 import {onMounted, ref} from 'vue'
 import {useCache} from '@/render/hooks/useCache'
+// 引入本地图片方法
+import {imgLocalUrl} from '@/render/utils/imgLocalUrl'
+
 const {wsCache}=useCache('localStorage')
 
 onMounted(()=>{
@@ -25,123 +30,73 @@ onMounted(()=>{
     window.electronAPI.isShowLogin(false)
   }
 })
-const count = ref('加载页面')
+// 引入icon
+const logo=imgLocalUrl('@/assets/load/logo.png')
+const close=imgLocalUrl('@/assets/load/close.png')
 </script>
 
 <style lang="scss" scoped>
-.app-loading {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: #f0f2f5;
-  //background: #b6ccee;
-}
-
-.app-loading .app-loading-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-  transform: translate3d(-50%, -50%, 0);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.app-loading .app-loading-title {
-  margin-bottom: 30px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.app-loading .app-loading-logo {
-  width: 100px;
-  margin: 0 auto 15px auto;
-}
-
-.app-loading .app-loading-item {
+.load-container{
+  width: 480px;
+  height: 310px;
+  background: #F44311;
+  box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.15);
+  border-radius: 2px 2px 2px 2px;
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  vertical-align: middle;
-  border-radius: 50%;
-}
-
-.app-loading .app-loading-outter {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 4px solid #2d8cf0;
-  border-bottom: 0;
-  border-left-color: transparent;
-  border-radius: 50%;
-  animation: loader-outter 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
-}
-
-.app-loading .app-loading-inner {
-  position: absolute;
-  top: calc(50% - 20px);
-  left: calc(50% - 20px);
-  width: 40px;
-  height: 40px;
-  border: 4px solid #87bdff;
-  border-right: 0;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: loader-inner 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
-}
-
-@-webkit-keyframes loader-outter {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+  .close-btn{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
   }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+  .close-btn:hover{
+    opacity: .8;
   }
-}
-
-@keyframes loader-outter {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+  .load-main{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 110px;
+    top: 98px;
+    .logo-img{
+      width: 58px;
+      height: 58px;
+      margin-right: 16px;
+      display: flex;
+    }
+    .title{
+      width: 180px;
+      p:nth-child(1){
+        font-size: 30px;
+        font-family: PingFang SC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: #FFFFFF;
+      }
+      p:nth-child(2){
+        font-size: 15px;
+        font-family: PingFang SC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: rgba(255,255,255,0.9);
+      }
+    }
   }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes loader-inner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes loader-inner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate(-360deg);
-    transform: rotate(-360deg);
+  .load-process-box{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 14px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span{
+      font-size: 14px;
+      font-family: PingFang SC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #E6E6E6;
+    }
   }
 }
 </style>

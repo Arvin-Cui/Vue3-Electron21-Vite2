@@ -1,0 +1,30 @@
+$menuActiveBackground:#F44311; //菜单选中背景色
+$menuActiveTextColor:#FFFFFF; //菜单选中文字颜色色
+//$menuTextColor:#FFFFFF; // 菜单文字颜色
+.el-menu{
+  border-right:none !important;
+}
+.el-menu-item.is-active{
+    background: $menuActiveBackground !important;
+    color: $menuActiveTextColor !important;
+}
+.el-menu-item:hover{
+  background: $menuActiveBackground !important;
+  color: $menuActiveTextColor !important;
+}
+.el-menu-item{
+  color: var(--menu-text-color) !important;
+}
+.el-sub-menu{
+  .el-menu-item,.el-menu-item-group__title{
+    background: var(--menu-bg-color);
+  }
+  .el-sub-menu__title{
+    color: var(--menu-text-color) !important;
+    background: var(--menu-bg-color);
+  }
+  .el-sub-menu__title:hover{
+    background: $menuActiveBackground !important;
+    color: $menuActiveTextColor !important;
+  }
+}

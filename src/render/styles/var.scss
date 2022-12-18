@@ -1,8 +1,22 @@
 :root {
-  --login-bg-color: #fff;
-  --top-header-back-color: #409eff;
+  --menu-bg-color: #262F39; // 菜单背景色
+  --top-header-back-color:#FFFFFF; // 头部操作栏背景色
+  --navigation-back-color:linear-gradient(180deg, #A2ABB9 0%, #B4BCC8 100%); // 路由导航栏背景色
+  --breadcrumb-back-color:rgba(0,0,0,0.3); // 面包屑背景色
+  --breadcrumb-active-back-color:#F5F6F7; // 面包屑激活背景色
+  --breadcrumb-text-color:#FFFFFF;// 面包屑字体色
+  --breadcrumb-active-text-color:#3E3A39;// 面包屑激活字体色
+  --menu-text-color:#FFFFFF; // 菜单栏文字颜色
+  --top-header-time-color:#303741; // 顶部时间颜色
 }
 .dark{
-  --login-bg-color:#293146;
-  --top-header-back-color: #293146;
+  --menu-bg-color: #1B1E25;
+  --top-header-back-color:#1B1E25;
+  --navigation-back-color:#35353C ;
+  --breadcrumb-back-color:#20232B;
+  --breadcrumb-text-color:#A3A6AB;
+  --breadcrumb-active-back-color:#131218;
+  --breadcrumb-active-text-color:#FFFFFF;
+  --menu-text-color:#C7CED2 ;
+  --top-header-time-color:#BCBCBC;
 }

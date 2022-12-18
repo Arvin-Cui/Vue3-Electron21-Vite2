@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import {useCache} from '@/render/hooks/useCache'
-import TopHeader from "@/render/layout/TopHeader.vue"
+import TopHeader from "@/render/layout/navBar/TopHeader.vue"
 import {useAppStore} from '@/render/store/modules/app'
 import {useOpenByBrowser} from '@/render/hooks/useOpenByBrowser'
 import {loginApi} from "@/render/api/login";

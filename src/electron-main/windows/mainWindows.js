@@ -23,7 +23,7 @@ const createMainWindow=(BrowserWindow)=>{
         show:false,
         frame:false,
         webPreferences: {
-            webSecurity: false,
+            webSecurity: true,
             nodeIntegration: true,
             contextIsolation: true,
             // 渲染器进程到主进程通信 定义预加载的ts

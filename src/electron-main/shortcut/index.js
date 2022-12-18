@@ -4,13 +4,13 @@ const initShortCut=()=>{
     // globalShortcut.register('CommandOrControl+X', () => {
     //     console.log('CommandOrControl+X is pressed')
     // })
-    globalShortcut.register('g', () => {
-        console.log('g')
-        if(global.mainWindow){
-            global.mainWindow.webContents.send('on-shortcut-event','g')
-        }
-
-    })
+    // globalShortcut.register('g', () => {
+    //     console.log('g')
+    //     if(global.mainWindow){
+    //         global.mainWindow.webContents.send('on-shortcut-event','g')
+    //     }
+    //
+    // })
 }
 const unInstallShortCut=()=>{
     // 注销快捷键

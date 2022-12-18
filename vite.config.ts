@@ -24,6 +24,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig=>{
     }
     return {
       base: env.VITE_BASE_PATH,
+        publicDir: resolve(__dirname, './dist'),
+        assetsInclude: resolve(__dirname, 'src/render/assets'),
       server: {
         port: 4000,
         proxy: {
@@ -45,7 +47,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig=>{
               // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
               // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
               resolvers: [
-                  ElementPlusResolver(),
+                  ElementPlusResolver({
+                      importStyle:'sass'
+                  }),
                   // Auto import icon components
                   // 自动导入图标组件
                   IconsResolver({
@@ -64,7 +68,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig=>{
                   }),
                   // Auto register Element Plus components
                   // 自动导入 Element Plus 组件
-                  ElementPlusResolver(),
+                  ElementPlusResolver({
+                      importStyle:'sass'
+                  }),
               ],
           }),
 
@@ -75,9 +81,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig=>{
       ],
       css: {
         preprocessorOptions: {
-          // scss: {
-          //   additionalData:'@import "@/styles/main.scss";'
-          // }
+          scss: {
+              additionalData: `@use "@/render/styles/layout.scss" as *;`,
+          }
         }
       },
       resolve: {

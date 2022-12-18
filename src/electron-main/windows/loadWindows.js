@@ -11,17 +11,19 @@ const loadWinURL =
 
 const createLoadWindow=(BrowserWindow)=>{
 
-    // 默认窗口尺寸
-    let mainWindowState = windowStateKeeper({
-        defaultWidth: 1000,
-        defaultHeight: 800
-    });
+    // // 默认窗口尺寸
+    // let mainWindowState = windowStateKeeper({
+    //     defaultWidth: 1000,
+    //     defaultHeight: 800
+    // });
     const win = new BrowserWindow({
-        'x': mainWindowState.x,
-        'y': mainWindowState.y,
-        'width': mainWindowState.width,
-        'height': mainWindowState.height,
+        // 'x': mainWindowState.x,
+        // 'y': mainWindowState.y,
+        'width': 480,
+        'height':310,
         focusable:true,
+        transparent: true,
+        backgroundColor: '#00000000',
         show:false,
         frame:false,
         resizable:false,
@@ -35,10 +37,10 @@ const createLoadWindow=(BrowserWindow)=>{
     })
     // 加载页面地址 线上内网可切换地址
     win.loadURL(`${loadWinURL}`)
-    // 管理客户端尺寸位置记忆插件
-    mainWindowState.manage(win);
-    // 开发者工具
-    win.webContents.openDevTools()
+    // // 管理客户端尺寸位置记忆插件
+    // mainWindowState.manage(win);
+    // // 开发者工具
+    // win.webContents.openDevTools()
     // 优雅打开界面
     win.on('ready-to-show',()=>{
         win.show()

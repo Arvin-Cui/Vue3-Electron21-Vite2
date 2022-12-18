@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import {computed, ref} from 'vue'
-import TopHeader from "@/render/layout/TopHeader.vue"
+import TopHeader from "@/render/layout/navBar/TopHeader.vue"
 import {useAppStore} from '@/render/store/modules/app'
 import {useOpenByBrowser} from '@/render/hooks/useOpenByBrowser'
 import {loginApi} from "@/render/api/login";
@@ -26,7 +26,6 @@ const {openByBrowser}=useOpenByBrowser()
 //   // })
 // }
 
-const count = computed(()=>{return appStore.count})
 const handleChange=async ()=>{
   // const params={}
   // const res=await loginApi(params)

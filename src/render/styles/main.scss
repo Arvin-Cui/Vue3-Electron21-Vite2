@@ -3,15 +3,24 @@ body{
   user-select: none;
   -webkit-app-region: drag;
 }
-h1{
-  color: red;
-  margin: 0;
+
+.wraper-container-no-drag{
+  -webkit-app-region: no-drag;
+}
+.wraper-container-drag{
+  -webkit-app-region: drag;
 }
 .wraper-container{
-  -webkit-app-region: no-drag;
+
 }
 .wraper-center{
   position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.wraper-center__absolute{
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);

@@ -1,0 +1,10 @@
+@import "element-theme";
+$sideBarExpandWidth:210px;
+$sideBarWidth:64px;
+$sideBarLogoExpandHeight:235px;
+$sideBarLogoHeight:180px;
+:export {
+  sideBarWidth: $sideBarWidth;
+  sideBarLogoHeight:$sideBarLogoHeight;
+  sideBarLogoExpandHeight:$sideBarLogoExpandHeight
+}
