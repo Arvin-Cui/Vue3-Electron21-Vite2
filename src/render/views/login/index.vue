@@ -11,7 +11,8 @@
     </div>
     <div class="login-method">
       <div class="login-method_left">
-        <LoginPassword />
+        <LoginPassword v-if="currentIndex===0"/>
+        <LoginMessage  v-if="currentIndex===1"/>
       </div>
       <div class="divide"></div>
       <div class="login-method_right">
@@ -38,7 +39,7 @@ import {reactive, ref} from 'vue'
 
 // 组件引入
 import LoginPassword from './login-password.vue'
-
+import LoginMessage from './login-message.vue'
 // import {useCache} from '@/render/hooks/useCache'
 // const {wsCache}=useCache('localStorage')
 // const count = ref('登录界面')
@@ -123,7 +124,7 @@ const handleChangeMethod=(index:Number)=>{
 
   .login-method{
     display: flex;
-    align-items: center;
+    //align-items: center;
     margin-top: 54px;
     padding-left: 80px;
     .login-method_left{
