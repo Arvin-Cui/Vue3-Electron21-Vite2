@@ -3,8 +3,12 @@ $sideBarExpandWidth:210px;
 $sideBarWidth:64px;
 $sideBarLogoExpandHeight:235px;
 $sideBarLogoHeight:180px;
+$topHeaderHeight:64px;
+$navigationHeight:38px;
 :export {
   sideBarWidth: $sideBarWidth;
   sideBarLogoHeight:$sideBarLogoHeight;
-  sideBarLogoExpandHeight:$sideBarLogoExpandHeight
+  sideBarLogoExpandHeight:$sideBarLogoExpandHeight;
+  topHeaderHeight:$topHeaderHeight;
+  navigationHeight:$navigationHeight
 }

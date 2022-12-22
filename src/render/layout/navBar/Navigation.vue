@@ -11,7 +11,7 @@ import Breadcrumb from './Breadcrumb.vue'
 <style lang="scss" scoped>
 .navigation-container{
   width: 100%;
-  height: 38px;
+  height: $navigationHeight;
   padding-left: 20px;
   background: var(--navigation-back-color);
 }

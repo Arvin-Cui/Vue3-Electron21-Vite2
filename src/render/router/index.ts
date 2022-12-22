@@ -51,6 +51,18 @@ export const constantRouterMap: (RouteRecordRaw | RouterCustorm)[] = [
         component: () => import('@/render/views/login/index.vue'),
     },
     {
+        path: '/register',
+        name: 'Register',
+        hidden: true,
+        component: () => import('@/render/views/login/register/index.vue'),
+    },
+    {
+        path: '/resetPassword',
+        name: 'ResetPassword',
+        hidden: true,
+        component: () => import('@/render/views/login/resetPassword/index.vue'),
+    },
+    {
         path: '/',
         name: 'Review',
         component: LayOut,

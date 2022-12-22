@@ -34,7 +34,7 @@
               <span>记住密码</span>
             </div>
           </div>
-          <div class="login-pre-action_right">
+          <div class="login-pre-action_right" @click="handleOpenReset">
               <span>重置密码</span>
           </div>
         </div>
@@ -119,9 +119,14 @@ const resetForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.resetFields()
 }
+
 const handleToLogin=()=>{
   wsCache.set('login',true,{exp : 100})
   window.electronAPI.setLogin('登陆成功')
+}
+// 打开重置密码
+const handleOpenReset=()=>{
+  window.electronAPI.openRestPassword()
 }
 </script>
 

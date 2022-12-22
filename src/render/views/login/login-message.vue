@@ -76,10 +76,17 @@ const validateCheckcode = (rule: any, value: any, callback: any) => {
 const validatePhone = (rule: any, value: any, callback: any) => {
   if (value === '') {
     callback(new Error('请输入注册手机号'))
-  } else if (value.length>11) {
-    callback(new Error("超出最长11位"))
   } else {
-    callback()
+    const reg = /^1[3|4|5|7|8|9][0-9]\d{8}$/; //手机号正则表达式
+    //const reg = /^([0-9]{3,4}-)?[0-9]{7,8}$/; //座机号正则表达式
+    //const reg =/^([1-9]{1})(\d{14}|\d{18})$/; //通用银行账号正则表达式
+    //const reg = /^[1-9][0-9]{5}$/; //邮编正则表达式
+    //const reg = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;//传真正则表达式
+    if (reg.test(value)) {
+      callback()
+    } else {
+      return callback(new Error('请输入正确的手机号'))
+    }
   }
 }
 

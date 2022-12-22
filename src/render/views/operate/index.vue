@@ -1,6 +1,7 @@
 <template>
    <div class="wraper-container">
     {{count}}
+     <el-button type="success">Success</el-button>
    </div>
 </template>
 

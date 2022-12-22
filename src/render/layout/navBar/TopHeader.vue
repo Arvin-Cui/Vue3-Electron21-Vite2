@@ -64,7 +64,7 @@ const handleChangeTheme=()=>{
 <style lang="scss" scoped>
 .header-container{
   width: 100%;
-  height: 64px;
+  height: $topHeaderHeight;
   background: var(--top-header-back-color);
   box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.06);
   display: flex;

@@ -62,8 +62,12 @@ const actionList=reactive([
 const currentIndex=ref<Number>(0)
 // 切换登录方式
 const handleChangeMethod=(index:Number)=>{
-  if(index===2 || index===3){
-    return
+  if(index===2){
+    return;
+  }
+  if(index===3){
+    window.electronAPI.openRegister()
+    return;
   }
   currentIndex.value=index
 }
